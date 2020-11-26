@@ -1,0 +1,1 @@
+insert into task_info values(default, 'task1', '0/10 * * * * ?');

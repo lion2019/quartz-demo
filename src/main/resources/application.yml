@@ -1,0 +1,48 @@
+# server
+server:
+  port: 8082
+  servlet:
+    context-path: /quartz-demo
+
+debug: true
+
+logging.level.root: info
+logging.level.com.example.demo: debug
+
+spring:
+  h2.console.enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+  # quartz
+  quartz:
+    job-store-type: jdbc
+    wait-for-jobs-to-complete-on-shutdown: true
+    jdbc:
+      initialize-schema: ALWAYS
+#    properties:
+#      org:
+#        quartz:
+#          scheduler:
+#            instanceName: clusteredScheduler
+#            instanceId: AUTO
+#          jobStore:
+#            dataSource: myDB
+#            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+#            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#            tablePrefix: QRTZ_
+#            isClustered: true
+#            clusterCheckinInterval: 10000
+#            useProperties: false
+#          threadPool:
+#            class: org.quartz.simpl.SimpleThreadPool
+#            threadCount: 10
+#            threadPriority: 5
+#            threadsInheritContextClassLoaderOfInitializingThread: true
+#          dataSource:
+#            myDB:
+#              user: sa
+#              maxConnections: 10
+#              driver: org.h2.Driver
+#              URL: jdbc:h2:mem:testdb
